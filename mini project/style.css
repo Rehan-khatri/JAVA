@@ -1,0 +1,254 @@
+/* style.css - Consolidated Styles for Airbnb Landing and Listings Pages */
+
+/* === Base Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f7f7;
+  color: #222;
+}
+
+/* === Navbar Styles (Used on all pages) === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 1.8rem;
+  color: #ff385c; /* Airbnb Red */
+  font-weight: bold;
+}
+
+.logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+}
+
+.search-bar input {
+  padding: 8px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+.search-bar button {
+  padding: 8px 15px;
+  border: none;
+  background-color: #ff385c;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #e71e4f;
+}
+
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar nav li {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 5px 10px;
+  transition: color 0.2s;
+}
+
+.navbar nav li:hover {
+    color: #ff385c;
+}
+
+/* === Hero Section (Index.html - Listings) === */
+.hero {
+  /* Using a general property image */
+  background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center center/cover;
+  height: 60vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 30px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+/* === Landing Hero Section (Home.html - Primary Welcome) === */
+.landing-hero {
+    /* Using a travel-centric image */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1549488344-ec225e8394b9') no-repeat center center/cover;
+    height: 60vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 30px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.landing-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.landing-hero p {
+    font-size: 1.4rem;
+}
+
+/* === Landing Content & Auth Options (Home.html) === */
+.landing-content {
+    padding: 50px 30px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.landing-content h2 {
+    color: #ff385c;
+    margin-bottom: 30px;
+}
+
+.auth-options {
+    margin-bottom: 30px;
+}
+
+.auth-options button {
+    padding: 12px 30px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #ff385c;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.auth-options button:hover {
+    background-color: #e71e4f;
+}
+
+.feature-link a {
+    color: #008489; /* Airbnb Teal */
+    text-decoration: none;
+}
+
+.feature-link a:hover {
+    text-decoration: underline;
+}
+
+.info-section {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    text-align: left;
+}
+
+.info-section h3 {
+    color: #484848;
+    margin-bottom: 10px;
+}
+
+.info-section ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.info-section li {
+    margin-bottom: 5px;
+}
+
+/* === Listings Section (Index.html, Buy.html, Rent.html) === */
+.listings {
+  padding: 30px;
+}
+
+.listings h2 {
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #484848;
+}
+
+.card-body p {
+  color: #767676;
+  margin-bottom: 15px;
+}
+
+.card-body button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #008489; /* Airbnb Teal */
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.card-body button:hover {
+  background-color: #006b6f;
+}

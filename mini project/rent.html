@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rent Properties - Exobnb Clone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo"><a href = "index.html">Exobnb</a></div>
+  <nav>
+    <ul>
+      <li onclick="handleNavigation('home')">Home</li>
+      <li onclick="handleNavigation('rent')">Rent</li>
+      <li onclick="handleNavigation('buy')">Buy</li>
+    </ul>
+  </nav>
+</header>
+
+<section class="listings">
+  <h2 id="section-title">Places to Rent</h2>
+  <div class="cards" id="listingContainer">
+    </div>
+</section>
+
+<script src="script.js"></script>
+<script>
+  // CHECK: If the user lands here directly, check login status
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+  if (!isLoggedIn) {
+      // If not logged in, save redirect and force login
+      alert("You must be logged in to view properties for rent.");
+      localStorage.setItem('redirectAfterLogin', 'rent.html');
+      window.location.replace('login.html');
+  } else {
+      // Load listings only if logged in
+      loadListings("rent");
+  }
+</script>
+
+</body>
+</html>

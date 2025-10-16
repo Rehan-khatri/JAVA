@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Buy Properties - Exobnb Clone</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo"><a href = "index.html">Exobnb</a></div>
+  <nav>
+    <ul>
+      <li onclick="handleNavigation('home')">Home</li>
+      <li onclick="handleNavigation('rent')">Rent</li>
+      <li onclick="handleNavigation('buy')">Buy</li>
+    </ul>
+  </nav>
+</header>
+
+<section class="listings">
+  <h2 id="section-title">Properties for Sale</h2>
+  <div class="cards" id="listingContainer">
+    </div>
+</section>
+
+<script src="script.js"></script>
+<script>
+  // IMMEDIATE CHECK: If the user lands here directly or via a link, check login status
+  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+
+  if (!isLoggedIn) {
+      // Redirect if not logged in
+      alert("You must be logged in to view properties for sale.");
+      window.location.replace('login.html');
+  } else {
+      // Load listings only if logged in
+      loadListings("buy");
+  }
+</script>
+
+</body>
+</html>

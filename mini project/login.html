@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login / Sign Up to Exobnb</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Basic styling for the login form */
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70vh;
+    }
+
+    .login-form {
+      background-color: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    .login-form h2 {
+      margin-bottom: 20px;
+      color: #ff385c;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .login-form button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border: none;
+      background-color: #ff385c;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .login-form button:hover {
+      background-color: #e71e4f;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo"><a href = "index.html">Exobnb</a></div>
+  <nav>
+    <ul>
+      <li onclick="window.location.href='home.html'">Home</li>
+      <li onclick="window.location.href='rent.html'">Rent Property</li>
+      <li onclick="window.location.href='buy.html'">Buy Property</li>
+    </ul>
+  </nav>
+</header>
+
+<section class="login-container">
+  <div class="login-form">
+    <h2 id="form-title">Log In to Access Property Features</h2>
+    <form id="loginForm">
+      <input type="text" id="email" placeholder="Email Address" required>
+      <input type="password" id="password" placeholder="Password (Test: any value)" required>
+      <button type="submit" id="submit-button">Log In</button>
+    </form>
+    <p style="margin-top: 15px; font-size: 0.85rem; color: #555;">(In a demo, any entry works for login)</p>
+  </div>
+</section>
+
+<script>
+  // Handle form title based on URL parameter (from home.html buttons)
+  const urlParams = new URLSearchParams(window.location.search);
+  const mode = urlParams.get('mode');
+  if (mode === 'signup') {
+    document.getElementById('form-title').textContent = 'Create Your Airbnb Account';
+    document.getElementById('submit-button').textContent = 'Sign Up';
+  } else {
+    document.getElementById('form-title').textContent = 'Log In to Access Property Features';
+    document.getElementById('submit-button').textContent = 'Log In';
+  }
+
+
+  document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // 1. Simulate successful login
+    localStorage.setItem('isLoggedIn', 'true');
+
+    // 2. Check for a saved redirect URL (the page the user tried to access)
+    const redirectUrl = localStorage.getItem('redirectAfterLogin');
+
+    // 3. Perform the redirect
+    if (redirectUrl) {
+        localStorage.removeItem('redirectAfterLogin'); // Clear it
+        window.location.href = redirectUrl; // Go to buy.html or rent.html
+    } else {
+        // Default redirect
+        window.location.href = 'index.html';
+    }
+  });
+</script>
+
+</body>
+</html>
