@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exobnb Clone - Real Estate</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo"><a href = "index.html">Exobnb</a></div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search destinations" id="searchInput">
+      <button onclick="searchPlaces()">Search</button>
+    </div>
+    <nav>
+      <ul>
+        <li onclick="filterType('rent')">Rent</li>
+        <li onclick="filterType('buy')">Buy</li>
+        <li onclick="sellProperty()">Sell</li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Find your dream place to stay or own</h1>
+    <p>Discover beautiful villas and unique homes worldwide</p>
+  </section>
+
+  <!-- Listings Section -->
+  <section class="listings">
+    <h2 id="section-title">Featured Properties</h2>
+    <div class="cards" id="listingContainer">
+      <!-- Cards injected by JS -->
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
